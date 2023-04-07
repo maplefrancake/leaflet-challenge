@@ -21,5 +21,7 @@ html {
   width:15px;
   height:15px;
   float:left;
+  margin-left:2px;
+  margin-right:2px;
 }
 

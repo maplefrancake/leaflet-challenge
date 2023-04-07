@@ -1,4 +1,4 @@
-const url="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson"
+const url="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
 
 d3.json(url).then(function (data) {
     console.log(data.features)
@@ -24,7 +24,7 @@ function createFeatures(earthquakeList){
                 color: depthColor(depth),
                 fillcolor: depthColor(depth),
                 fillOpacity: 0.5
-            })
+            }).bindPopup(`<h2>Location: ${place}</h2><hr><h3>Magnitude: ${mag}</h3><hr><h3>Depth: ${depth}</h3>`)
         )
     }
     earthquakeLayer = L.layerGroup(earthquakeCircles);
@@ -102,8 +102,6 @@ function createEarthquakeMap(earthquakes){
     var legendColors = ["lawngreen","greenyellow","gold","goldenrod","orangered","darkred"]
 
     legend.onAdd = function (map) {
-        
-        var x=10,y=10,dx=20,dy=20
         for (i=0; i<legendText.length; i++){
             div.innerHTML += legendTitle.push(`<i style="background-color:${legendColors[i]}"></i>${legendText[i]}`);
             /* legendRects.push(new shape(x,y,dx,dy,legendColors[i],legendText[i]));
