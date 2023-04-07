@@ -8,3 +8,18 @@ body,
 html {
   height: 100%;
 }
+
+.legend {
+  border: 2px solid black;
+  max-width: fit-content;
+  max-height: fit-content;
+  background: beige;
+  opacity: 0.75;
+}
+.legend i{
+  border: 1px solid black;
+  width:15px;
+  height:15px;
+  float:left;
+}
+
